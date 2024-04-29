@@ -20,6 +20,11 @@ const App = () => {
     text: "This is my Third Note",
     date:"29/04/2024",
   },
+  {
+    id: nanoid(),
+    text: "This is my New Note",
+    date:"29/04/2024",
+  },
 ]);
   return (
     <div className="container">

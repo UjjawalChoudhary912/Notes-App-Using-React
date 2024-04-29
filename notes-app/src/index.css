@@ -27,6 +27,21 @@ code {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
+    /* css for header */
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dark-mode {
+      background-color: black;
+      min-height: 100vh;
+    }
+    
+    .dark-mode h1{
+      color: white;
+    }
 /* css for new note */
 .note.new{
   background-color: rgb(243, 61, 109);

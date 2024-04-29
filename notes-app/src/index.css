@@ -12,6 +12,23 @@ code {
     monospace;
 }
 
+.container{
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* css for notes list */
+    .notes-list{
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+
+
 /* css for note */
 .note{
   background-color: rgb(46, 144, 144);

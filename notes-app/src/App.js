@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import {nanoid} from 'nanoid';
 import NotesList from "./components/NotesList";
 import Search from "./components/Search";
@@ -33,9 +33,29 @@ const App = () => {
 
      const [darkMode, setDarkMode] = useState(false);
 
+     useEffect(() => {
+      try {
+          const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
+          console.log("Loaded notes:", savedNotes);
+          if (savedNotes) {
+              setNotes(savedNotes);
+          }
+      } catch (error) {
+          console.error('Failed to load notes from local storage', error);
+      }
+  }, []);
+  
+
+     useEffect(() =>{
+        localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+     }, [notes]);
+
+
+
      const addNote = (text) =>{
         const date = new Date();
         const newNote ={
+          id: nanoid,
           text: text,
           date: date.toLocaleDateString()
         }
@@ -45,7 +65,7 @@ const App = () => {
      }; 
 
     const deleteNote = (id) =>{
-        const newNotes=  notes.filter((note) =>
+        const newNotes=  notes.filter(note =>
           note.id!== id);
           setNotes(newNotes);
     }
